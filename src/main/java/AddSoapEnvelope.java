@@ -1,13 +1,6 @@
 import org.w3c.dom.Document;
-import org.xml.sax.SAXException;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
 import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.soap.MessageFactory;
-import javax.xml.soap.SOAPException;
 import javax.xml.soap.SOAPMessage;
 import javax.xml.transform.Transformer;
 import javax.xml.transform.TransformerFactory;
@@ -16,7 +9,6 @@ import javax.xml.transform.stream.StreamResult;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.StringWriter;
 
 public class AddSoapEnvelope {
@@ -29,7 +21,7 @@ public class AddSoapEnvelope {
     //READ XML FROM FILE
     DocumentBuilderFactory documentBuilderFactory = DocumentBuilderFactory.newInstance();
                            documentBuilderFactory.setNamespaceAware(true); //To avoid "local part cannot be "null""
-    Document document    = documentBuilderFactory.newDocumentBuilder().parse("src/main/resources/person.xml");
+    Document document    = documentBuilderFactory.newDocumentBuilder().parse("src/main/resources/Person.xml");
     System.out.println(documentToString(document));  //Display original XML
 
     //ADD SOAP ENVELOPE
@@ -45,7 +37,7 @@ public class AddSoapEnvelope {
     System.out.println(output); //Display converted XML
 
     //STORE RESULT INTO FILE
-    File              file = new File("output.xml");
+    File              file = new File("PersonSOAP.xml");
     FileOutputStream  fos = new FileOutputStream(file);
                       fos.write(outputStream.toByteArray());
                       fos.flush();
