@@ -1,5 +1,0 @@
-<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"><SOAP-ENV:Header/><SOAP-ENV:Body><person>
-   <id>1</id>
-   <name>John</name>
-   <age>20</age>
-</person></SOAP-ENV:Body></SOAP-ENV:Envelope>
