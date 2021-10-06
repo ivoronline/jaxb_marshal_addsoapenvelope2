@@ -4,6 +4,7 @@ import javax.xml.soap.SOAPMessage;
 
 public class AddSoapEnvelope {
 
+  //PROPERTIES
   static String fileXML  = "Person.xml";
   static String fileSOAP = "src/main/resources/PersonSOAP.xml";
 
@@ -14,12 +15,12 @@ public class AddSoapEnvelope {
 
     //MAIN CODE TO CREATE SOAP FILE
     Document    xmlDocument  = UtilXML.fileToDocument(fileXML);
-    SOAPMessage soapMessage  = UtilSOAP.createSOAP(xmlDocument);
-                               UtilSOAP.SOAPToFile(fileSOAP, soapMessage);
+    SOAPMessage soapMessage  = UtilSOAP.XMLDocumentToSOAPMessage(xmlDocument);
+                               UtilSOAP.SOAPMessageToSOAPFile(fileSOAP, soapMessage);
 
     //JUST TO DEMONSTRATE CONVERSIONS
-    Document    soapDocument = UtilSOAP.SOAPToDocument(soapMessage);
-    String      soapString   = UtilSOAP.SOAPToString(soapMessage);
+    Document    soapDocument = UtilSOAP.SOAPMessageToSOAPDocument(soapMessage);
+    String      soapString   = UtilSOAP.SOAPMessageToSOAPString(soapMessage);
 
     //DISPLAY XML & SOAP FILES
     Document xmlDocument2 = UtilXML.fileToDocument(fileXML);
